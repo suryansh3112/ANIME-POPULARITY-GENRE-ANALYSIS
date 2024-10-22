@@ -1,0 +1,96 @@
+Type: TV
+Quantitative Features:
+	Score:
+		Min: 2.89
+		Median: 6.82
+		Max: 9.33
+	Scored_By:
+		Min: 107
+		Median: 12789.0
+		Max: 2857738
+	Members:
+		Min: 283
+		Median: 35493.0
+		Max: 4045648
+Qualitative Features:
+	Rating:
+		Number of Categories: 5
+		Most Frequent Category: PG-13 - Teens 13 or older
+		Least Frequent Category: R+ - Mild Nudity
+	Source:
+		Number of Categories: 17
+		Most Frequent Category: Manga
+		Least Frequent Category: Web novel
+
+Type: Movie
+Quantitative Features:
+	Score:
+		Min: 2.43
+		Median: 6.37
+		Max: 9.04
+	Scored_By:
+		Min: 103
+		Median: 993.0
+		Max: 1945481
+	Members:
+		Min: 181
+		Median: 2860.0
+		Max: 2814414
+Qualitative Features:
+	Rating:
+		Number of Categories: 6
+		Most Frequent Category: G - All Ages
+		Least Frequent Category: Rx - Hentai
+	Source:
+		Number of Categories: 17
+		Most Frequent Category: Original
+		Least Frequent Category: Web novel
+
+Type: ONA
+Quantitative Features:
+	Score:
+		Min: 2.4
+		Median: 6.2
+		Max: 9.01
+	Scored_By:
+		Min: 103
+		Median: 568.5
+		Max: 714963
+	Members:
+		Min: 252
+		Median: 1881.0
+		Max: 1184553
+Qualitative Features:
+	Rating:
+		Number of Categories: 6
+		Most Frequent Category: PG-13 - Teens 13 or older
+		Least Frequent Category: R+ - Mild Nudity
+	Source:
+		Number of Categories: 17
+		Most Frequent Category: Original
+		Least Frequent Category: Radio
+
+Type: OVA
+Quantitative Features:
+	Score:
+		Min: 1.88
+		Median: 6.23
+		Max: 9.01
+	Scored_By:
+		Min: 104
+		Median: 2062.0
+		Max: 493922
+	Members:
+		Min: 281
+		Median: 5574.0
+		Max: 953839
+Qualitative Features:
+	Rating:
+		Number of Categories: 6
+		Most Frequent Category: Rx - Hentai
+		Least Frequent Category: PG - Children
+	Source:
+		Number of Categories: 16
+		Most Frequent Category: Manga
+		Least Frequent Category: Radio
+
