@@ -1,24 +1,24 @@
 Correlations for Type - TV:
-           Score  Scored_By  Members
-Score      1.000      0.421    0.464
-Scored_By  0.421      1.000    0.990
-Members    0.464      0.990    1.000
+           Score  Scored_By   Year
+Score      1.000      0.421  0.111
+Scored_By  0.421      1.000  0.165
+Year       0.111      0.165  1.000
 
 Correlations for Type - Movie:
-           Score  Scored_By  Members
-Score      1.000      0.363    0.409
-Scored_By  0.363      1.000    0.992
-Members    0.409      0.992    1.000
+           Score  Scored_By   Year
+Score      1.000      0.363  0.489
+Scored_By  0.363      1.000  0.123
+Year       0.489      0.123  1.000
 
 Correlations for Type - ONA:
-           Score  Scored_By  Members
-Score      1.000      0.259    0.295
-Scored_By  0.259      1.000    0.986
-Members    0.295      0.986    1.000
+           Score  Scored_By   Year
+Score      1.000      0.259  0.476
+Scored_By  0.259      1.000  0.025
+Year       0.476      0.025  1.000
 
 Correlations for Type - OVA:
-           Score  Scored_By  Members
-Score      1.000      0.380    0.411
-Scored_By  0.380      1.000    0.991
-Members    0.411      0.991    1.000
+           Score  Scored_By   Year
+Score      1.000      0.380  0.414
+Scored_By  0.380      1.000  0.167
+Year       0.414      0.167  1.000
 

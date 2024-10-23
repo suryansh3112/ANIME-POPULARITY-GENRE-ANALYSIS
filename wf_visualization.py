@@ -132,7 +132,7 @@ def visualize_data():
         (ona_df, AnimeType.ONA.name),
         (ova_df, AnimeType.OVA.name),
     ]
-    quantitative_features = ["Score", "Scored_By", "Members"]
+    quantitative_features = ["Score", "Scored_By", "Year"]
     qualitative_features = ["Rating", "Source"]
 
     results = {

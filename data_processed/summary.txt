@@ -8,10 +8,10 @@ Quantitative Features:
 		Min: 107
 		Median: 12789.0
 		Max: 2857738
-	Members:
-		Min: 283
-		Median: 35493.0
-		Max: 4045648
+	Year:
+		Min: 1961
+		Median: 2012.0
+		Max: 2024
 Qualitative Features:
 	Rating:
 		Number of Categories: 5
@@ -32,10 +32,10 @@ Quantitative Features:
 		Min: 103
 		Median: 993.0
 		Max: 1945481
-	Members:
-		Min: 181
-		Median: 2860.0
-		Max: 2814414
+	Year:
+		Min: 1917
+		Median: 2006.0
+		Max: 2024
 Qualitative Features:
 	Rating:
 		Number of Categories: 6
@@ -56,10 +56,10 @@ Quantitative Features:
 		Min: 103
 		Median: 568.5
 		Max: 714963
-	Members:
-		Min: 252
-		Median: 1881.0
-		Max: 1184553
+	Year:
+		Min: 1998
+		Median: 2019.0
+		Max: 2024
 Qualitative Features:
 	Rating:
 		Number of Categories: 6
@@ -80,10 +80,10 @@ Quantitative Features:
 		Min: 104
 		Median: 2062.0
 		Max: 493922
-	Members:
-		Min: 281
-		Median: 5574.0
-		Max: 953839
+	Year:
+		Min: 1979
+		Median: 2005.0
+		Max: 2024
 Qualitative Features:
 	Rating:
 		Number of Categories: 6
