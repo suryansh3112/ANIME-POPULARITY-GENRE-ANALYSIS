@@ -46,10 +46,7 @@
 28. Genres:The genres that describe the anime
 29. Themes: The themes present in the anime
 
-**Dataset File Hash(es):**
-
-1. anime_dataset.csv : aa24b64d4cdf99e58973775d7424597d
-2. anime_processed_data.csv :ecbc8ecb7c960d6bb875dc11e54f44a2
+**Dataset File Hash(es):** Anime dataset used was generated through Jikan Api, so there is no file to hash. Data was gathered by calling api: `https://api.jikan.moe/v4/top/anime?page={page}`. The data was collected page by page (wf_datagen.py). It took a total of 55 minutes.
 
 ## Interpretable Records
 
@@ -101,18 +98,92 @@ This dataset is gathered from Jikan API is representative of the anime industry 
 
 ## Data Transformations
 
-### Transformation N
+### Transformation 1: Filtering by Type
 
-**Description:** TODO
+**Description:** This filters data based on type and keeps TV, Movie, OVA, and ONA.
 
-**Soundness Justification:** TODO
+**Soundness Justification:** This transformation does not change semantics of data because it focuses on relevent categories for analysis. By removing irrelevant types, we ensure that our analysis remains focused on the dataset's intended purpose without discarding usable data from the remaining categories.
 
-(duplicate above as many times as needed; remove this line when done)
+### Transformation 2: Dropping Entries without Score
+
+**Description:** Removed Entries which didn't have scores
+
+**Soundness Justification:** Scores are critical for evaluating popularity of anime. By dropping these entries, we ensure that the dataset consists only of records with valid scores, thus maintaining the integrity of the analysis. This operation does not introduce errors or outliers as we are only removing non-informative data.
+
+### Transformation 3: Date Conversion
+
+**Description:** Converting string to date for Aired_From and Aired_To columns
+
+**Soundness Justification:** This converts columns with date strings to datetime object, which helps in using this data. The parameter `errors="coerce"` manages any conversion errors, turning invalid dates into NaT without including errors or outliers.
+
+### Transformation 4: Filling Missing Episodes
+
+**Description:** The records with missing episodes are estimated by computing the difference between the current date and the "Aired_From" date, filled in the "Episodes" column.
+
+**Soundness Justification:** This is a reasonable approximation of missing data without any added bias. The transformation assumes a weekly release schedule and does not reject useable data; thus, it maintains the integrity of the dataset as a whole.
+
+### Transformation 5: Converting Duration
+
+**Description:** Converting duration from string to minutes
+
+**Soundness Justification:** This transformation unifies the unit to minutes from string that include hours, minutes and seconds. As we are just changing the format of the durations, there is no chance of introducing errors or outliers, which means that numerical analysis can be done.
+
+### Transformation 6: Filling Missing English Names
+
+**Description:** Missing entries in the column "English_Name" are filled from the "Name" column.
+
+**Soundness Justification:** This transformation ensures that each entry will have an English name associated with it, making it more usable, but does so in a manner that has not affected the original semantics of the dataset.
+
+### Transformation 7: Dropping Unnecessary Columns
+
+**Description:**
+The columns such as "Japanese_Name", "Url", and "Status" which are unnecessary for analysis are dropped from the dataset.
+
+**Soundness Justification:**
+This operation does not affect the semantics of the remaining data but rather simplifies the dataset for analysis. Removing extra information reduces complexity without discarding usable data or introducing errors.
+
+### Transformation 8: Fill Missing Year and Season
+
+**Description:**
+The "Year" and "Season" columns are filled using values from the "Aired_From" date where they are missing.
+
+**Soundness Justification:**
+This maintains the same semantics since all the entries refer to a plausible year and season information. There is no injection of errors since information has been inferred from other data, as opposed to conjecturing arbitrary values.
+
+### Transformation 9: Column Renaming
+
+**Description:**
+Rename the column "Scored By" to "Scored_By" for consistency.
+
+**Soundness Justification:**
+It does not impact the semantics of the data.
+
+### Transformation 10: Type Conversion
+
+**Description:**
+Columns like "Scored_By", "Year" are casted into integer type.
+
+**Soundness Justification:**
+These columns need to be converted to their respective data types in order for the data to become analytically viable.
 
 ## Visualizations
 
-### Visual N
+### Visual 1: Histogram of Rating (TV)
 
-**Analysis:** TODO
+**Analysis:** Most of the data falls into the category "PG-13 - Teens 13 or older", which dominates this distribution with the highest frequency. That might be a good implication that most of the TV shows are targeted for teen audiences and diminish considerably in number for other shows targeted either for children, or with higher, more adult content, such as "R+ - Mild Nudity" and "R - 17+ (violence & profanity)".
 
-(duplicate above as many times as needed; remove this line when done)
+### Visual 2: Histogram of Source (TV)
+
+**Analysis:** The most common source types for works of this type are "Manga," then "Original," and finally "Light novels." This indicates a trend that media formats like manga and light novels are highly utilized in making adaptations for TV, while other media formats such as "Picture book" or "Radio" hardly ever act as a source.
+
+### Visual 3: Scatter Plot of Score vs. Scored_By (TV)
+
+**Analysis:** It follows that the more the score increases, the more users rate shows in TV. There is even an evident spike around the 8 to 9 score range, where a large number of shows have much higher rating participations in terms of the number of users. That means, in other words, the higher-rated shows receive more scores from users. However, at the low-scoring end, most the shows achieve fewer ratings.
+
+### Visual 4: Scatter Plot of Scored_By vs. Year (TV)
+
+**Analysis:** From the plot, we can observe that recent TV shows (later than 2010) have more ratings compared to older shows. This may be due to growing popularity on online platforms and anime in general, since there is a clear increase in the number of ratings while moving from the 1990s to the 2020s.
+
+### Visual 5: Scatter Plot of Score vs. Year (TV)
+
+**Analysis:** From this graph, it is deducible that most of the TV series, ranging from the 1990s to the 2020s, fall within the score range of 6 to 8. While some outliers could result in higher or even lower scores, there is no apparent shifting of the trends of scores across time to really indicate that the general perception of the quality of the shows remains relatively similar across decades.
