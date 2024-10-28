@@ -10,7 +10,7 @@
 
 **Description:** This project focuses on analyzing anime data to uncover insights about popularity and genre trends. By examining a rich dataset of anime titles, including attributes such as genre, studio, release year, and user ratings, we aim to answer key questions about what drives anime success and how genre preferences evolve over time.
 
-Research Questions:
+Potential Questions:
 
 1. **What factors most significantly influence the popularity of anime?**
 
@@ -22,7 +22,13 @@ Research Questions:
 
 **Research Questions:**
 
-1.
+1. RO1:
+
+2. RO2: To predict the label of anime popularity (popular/unpopular) based on features such as genre, studio, and others using a machine learning classification model.
+
+3. RO3: To defend the classification model used in RO2 by evaluating its accuracy, precision, recall, and overall performance.
+
+4. RO4: To evaluate the relationships implied by the RO2 model, analyzing the impact of features like genre and studio on anime popularity and identifying key insights.
 
 **Intellectual Merit:** The scientific discovery potential of this project lies in its ability to uncover key factors that drive anime popularity and track the evolution of genre preferences over time. By analyzing extensive datasets of anime attributes, ratings, and genres, the project aims to:
 
