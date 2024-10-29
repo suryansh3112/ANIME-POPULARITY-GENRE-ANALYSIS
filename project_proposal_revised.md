@@ -2,7 +2,7 @@
 
 #### Analyzing Anime Popularity and Genre Trends
 
-#### Anonymous
+#### Suryansh Bhupesh Purohit
 
 #### 28th October 2024
 
@@ -22,7 +22,7 @@ Potential Questions:
 
 **Research Questions:**
 
-1. RO1:
+1. RO1: To describe genre trends within anime data, focusing on how genre preferences have evolved over time and their relationship to anime popularity.
 
 2. RO2: To predict the label of anime popularity (popular/unpopular) based on features such as genre, studio, and others using a machine learning classification model.
 
@@ -63,7 +63,7 @@ The dataset spans various anime types (TV, Movie, OVA, ONA), offering a wide ran
 - **Editor:** Mark W. MacWilliams
 - **ISBN:** 978-0765610707
 
-**Related Work:** Here are two academic papers related to analyzing anime popularity and genre trends:
+**Related Work:** Here are academic papers related to analyzing anime popularity and genre trends:
 
 1. **Unveiling Anime Preferences: A Data-driven Analysis using MyAnimeList API**
 
