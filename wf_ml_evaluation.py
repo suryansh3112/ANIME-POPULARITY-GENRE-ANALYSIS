@@ -52,8 +52,11 @@ y = data["Popularity_Output"]
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=40, stratify=y
 )
-print(X_test)
-print(y_test)
+
+X_train.to_csv("data_processed/X_train.csv", index=False)
+X_test.to_csv("data_processed/X_test.csv", index=False)
+y_train.to_csv("data_processed/y_train.csv", index=False)
+y_test.to_csv("data_processed/y_test.csv", index=False)
 
 print("Training data shape:", X_train.shape)
 print("Test data shape:", X_test.shape)
