@@ -81,5 +81,16 @@ def process_data():
     df["Scored_By"] = df["Scored_By"].astype(int)
     df["Year"] = df["Year"].astype(int)
 
+    single_label_categorical = ["Source", "Rating", "Season", "Broadcast_Day"]
+    for feature in single_label_categorical:
+        df[feature] = df[feature].fillna("Unknown")
+
+    multi_label_categorical = ["Producers", "Licensors", "Studios", "Genres", "Themes"]
+
+    for feature in multi_label_categorical:
+        df[feature] = df[feature].apply(
+            lambda x: x.split(", ") if isinstance(x, str) else []
+        )
+
     # Converting processed data to csv
     df.to_csv(output_filename, index=False)

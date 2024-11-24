@@ -14,9 +14,9 @@ Quantitative Features:
 		Max: 2024
 Qualitative Features:
 	Rating:
-		Number of Categories: 5
+		Number of Categories: 6
 		Most Frequent Category: PG-13 - Teens 13 or older
-		Least Frequent Category: R+ - Mild Nudity
+		Least Frequent Category: Unknown
 	Source:
 		Number of Categories: 17
 		Most Frequent Category: Manga
@@ -38,7 +38,7 @@ Quantitative Features:
 		Max: 2024
 Qualitative Features:
 	Rating:
-		Number of Categories: 6
+		Number of Categories: 7
 		Most Frequent Category: G - All Ages
 		Least Frequent Category: Rx - Hentai
 	Source:
@@ -62,9 +62,9 @@ Quantitative Features:
 		Max: 2024
 Qualitative Features:
 	Rating:
-		Number of Categories: 6
+		Number of Categories: 7
 		Most Frequent Category: PG-13 - Teens 13 or older
-		Least Frequent Category: R+ - Mild Nudity
+		Least Frequent Category: Unknown
 	Source:
 		Number of Categories: 17
 		Most Frequent Category: Original
@@ -86,9 +86,9 @@ Quantitative Features:
 		Max: 2024
 Qualitative Features:
 	Rating:
-		Number of Categories: 6
+		Number of Categories: 7
 		Most Frequent Category: Rx - Hentai
-		Least Frequent Category: PG - Children
+		Least Frequent Category: Unknown
 	Source:
 		Number of Categories: 16
 		Most Frequent Category: Manga

@@ -22,16 +22,8 @@ data = data[selected_features + ["Score", "Type"]]
 
 
 single_label_categorical = ["Source", "Rating", "Season", "Broadcast_Day"]
-for feature in single_label_categorical:
-    data[feature] = data[feature].fillna("Unknown")
-
 
 multi_label_categorical = ["Producers", "Licensors", "Studios", "Genres", "Themes"]
-
-for feature in multi_label_categorical:
-    data[feature] = data[feature].apply(
-        lambda x: x.split(", ") if isinstance(x, str) else []
-    )
 
 score_median = data["Score"].median()
 data["Popularity_Output"] = data["Score"].apply(lambda x: 1 if x > score_median else 0)
