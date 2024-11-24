@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, MultiLabelBinarizer
+import pickle
 
 data = pd.read_csv("data_processed/anime_processed_data.csv")
 
@@ -29,13 +30,27 @@ score_median = data["Score"].median()
 data["Popularity_Output"] = data["Score"].apply(lambda x: 1 if x > score_median else 0)
 data = data.drop(columns=["Score"])
 
-scaler = MinMaxScaler()
-data["Episodes"] = scaler.fit_transform(data[["Episodes"]])
-data["Year"] = scaler.fit_transform(data[["Year"]])
+scaler_episodes = MinMaxScaler()
+data["Episodes"] = scaler_episodes.fit_transform(data[["Episodes"]])
 
+scaler_year = MinMaxScaler()
+data["Year"] = scaler_year.fit_transform(data[["Year"]])
+
+with open("models/scaler_episodes.pkl", "wb") as f:
+    pickle.dump(scaler_episodes, f)
+
+with open("models/scaler_year.pkl", "wb") as f:
+    pickle.dump(scaler_year, f)
+
+factorize_mappings = {}
 for feature in single_label_categorical:
-    data[feature] = pd.factorize(data[feature])[0]
+    data[feature], uniques = pd.factorize(data[feature])
+    factorize_mappings[feature] = dict(zip(uniques, range(len(uniques))))
 
+with open("models/factorize_mappings.pkl", "wb") as f:
+    pickle.dump(factorize_mappings, f)
+
+mlb_dict = {}
 for feature in multi_label_categorical:
     mlb = MultiLabelBinarizer()
     transformed_data = mlb.fit_transform(data[feature])
@@ -43,6 +58,10 @@ for feature in multi_label_categorical:
         transformed_data, columns=[f"{feature}_{label}" for label in mlb.classes_]
     )
     data = pd.concat([data.drop(columns=[feature]), transformed_df], axis=1)
+    mlb_dict[feature] = mlb
+
+with open("models/mlb_dict.pkl", "wb") as f:
+    pickle.dump(mlb_dict, f)
 
 data = data.drop(columns=["Type"])
 
