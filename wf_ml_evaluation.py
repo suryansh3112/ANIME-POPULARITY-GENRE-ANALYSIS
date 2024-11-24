@@ -63,6 +63,8 @@ for feature in multi_label_categorical:
 with open("models/mlb_dict.pkl", "wb") as f:
     pickle.dump(mlb_dict, f)
 
+data = data[data["Type"].isin(["TV"])]
+
 data = data.drop(columns=["Type"])
 
 X = data.drop(columns=["Popularity_Output"])
