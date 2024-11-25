@@ -61,17 +61,17 @@ def get_prediction(model_name):
     )
     unpopular_input = pd.DataFrame(
         {
-            "Source": ["Original"],
-            "Episodes": [0],
-            "Rating": ["PG-13 - Teens 13 or older"],
-            "Season": ["summer"],
-            "Year": [2023],
+            "Source": ["Orignal"],
+            "Episodes": [10],
+            "Rating": ["R - 17+ (violence & profanity)"],
+            "Season": ["winter"],
+            "Year": [2020],
             "Broadcast_Day": ["Mondays"],
-            "Producers": ["Pierrot, TV Tokyo"],
-            "Licensors": ["ADV Films"],
-            "Studios": ["feel., Assez Finaud Fabric"],
-            "Genres": ["Slice of Life"],
-            "Themes": ["Vampire, Military"],
+            "Producers": ["Sega"],
+            "Licensors": ["Central Park Media"],
+            "Studios": ["Studio Deen"],
+            "Genres": ["Horror"],
+            "Themes": ["Gore"],
         }
     )
     print(f"\n{model_name}:")
