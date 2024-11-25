@@ -30,15 +30,15 @@ Explanation: Conception is unpopular because of the limited episode count (12), 
 
 ### Feature A
 
-**Feature:** TODO
+**Feature:** Source
 
-**Justification:** TODO
+**Justification:** The origin of any anime-Manga, Light Novel, or Game-often determines the depth in storytelling and what audiences would come to expect. For example, anime that originates from popular manga usually has a strong following and more developed storylines, which increases their popularity. However, anime that stems from games may attract audiences from a very specific niche, which can have an impact on their wider popularity.
 
 ### Feature B
 
-**Feature:** TODO
+**Feature:** Studios
 
-**Justification:** TODO
+**Justification:** The quality of the anime and its reception depend a lot on the studio producing it. Famous studios like Bones or Madhouse are well known for their great animation, storytelling, and flow, and often captivate viewership and popularity. Less popular or low-tier studios may make anime that sometimes has inconsistent quality; therefore, the audience is less interested in viewing.
 
 ## Experiments
 
