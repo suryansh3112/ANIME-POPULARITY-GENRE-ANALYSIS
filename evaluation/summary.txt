@@ -1,16 +1,16 @@
 Model: random_forest_model_100.pkl
 Accuracy: 81.3265%
-F1-Score: 86.7102%
+F1-Score: 0.8671
 
 Model: random_forest_model_200.pkl
 Accuracy: 80.8163%
-F1-Score: 86.3965%
+F1-Score: 0.8640
 
 Model: gradient_boosting_classifier.pkl
 Accuracy: 78.0612%
-F1-Score: 84.4765%
+F1-Score: 0.8448
 
 Model: logistic_regression_model.pkl
 Accuracy: 78.2653%
-F1-Score: 84.0926%
+F1-Score: 0.8409
 

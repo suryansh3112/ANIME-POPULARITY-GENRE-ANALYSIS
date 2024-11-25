@@ -116,7 +116,7 @@ def save_metrics(model_name, mode="a"):
     with open("evaluation/summary.txt", mode) as f:
         f.write(f"Model: {model_name}\n")
         f.write(f"Accuracy: {accuracy*100:.4f}%\n")
-        f.write(f"F1-Score: {f1*100:.4f}%\n\n")
+        f.write(f"F1-Score: {f1:.4f}\n\n")
 
 
 save_training_and_testing_data()

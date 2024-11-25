@@ -35,8 +35,9 @@ Parameters: n_estimators=100, criterion="entropy", random_state=17
 **Evaluation:**
 
 1. **Accuracy:** 81.33%
-2. **F1-Score:** 86.71%
-   This model did best on both accuracy and F1-score, which means that it was up to the task of modeling the complexity of the dataset.
+2. **F1-Score:** 0.8671
+
+This model did best on both accuracy and F1-score, which means that it was up to the task of modeling the complexity of the dataset.
 
 ### Alternative 2: Random Forest (200 estimators)
 
@@ -47,7 +48,7 @@ Parameters: n_estimators=200, criterion="gini", random_state=17
 **Evaluation:**
 
 1. **Accuracy:** 80.82%
-2. **F1-Score:** 86.40%
+2. **F1-Score:** 0.8640
    Further increases in the number of estimators did not increase accuracy or F1-score from the 100-estimator Random Forest. It likely added unnecessary complexity without much gain.
 
 ### Alternative 3: Gradient Boosting Classifier
@@ -59,7 +60,7 @@ Parameters: Default with random_state=17
 **Evaluation:**
 
 1. **Accuracy:** 78.06%
-2. **F1-Score:** 84.48%
+2. **F1-Score:** 0.8448
    This model showed reasonable performance but was far from the Random Forest classifiers. Gradient Boosting might require further parameter tuning for better results.
 
 ### Alternative 4: Logistic Regression
@@ -71,7 +72,7 @@ Parameters: max_iter=1000, random_state=17
 **Evaluation:**
 
 1. **Accuracy:** 78.27%
-2. **F1-Score:** 84.09%
+2. **F1-Score:** 0.8409
    Logistic Regression had scores similar to Gradient Boosting Classifier. It is a linear model, and thus it is likely less suited to the non-linear relationships in the dataset.
 
 ## Best Model
@@ -82,5 +83,7 @@ Parameters: max_iter=1000, random_state=17
 The best performance metrics were obtained with a Random Forest model using 100 estimators and criterion="entropy":
 
 **Accuracy:** 81.33%
-**F1-Score:** 86.71%
+
+**F1-Score:** 0.8671
+
 This model's balance of interpretability, computational efficiency, and effectiveness makes it an ideal choice for this problem.
