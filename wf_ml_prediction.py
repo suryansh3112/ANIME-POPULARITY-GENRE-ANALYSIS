@@ -35,9 +35,14 @@ def get_formatted_input(new_input):
     return new_input
 
 
-with open("models/random_forest_model.pkl", "rb") as file:
-    model = pickle.load(file)
-new_input = pd.DataFrame(
+def get_prediction(pred_input):
+    with open("models/random_forest_model.pkl", "rb") as file:
+        model = pickle.load(file)
+    pred = model.predict(get_formatted_input(pred_input))
+    return "Popular" if pred[0] == 1 else "Unpopular"
+
+
+popular_input = pd.DataFrame(
     {
         "Source": ["Original"],
         "Episodes": [28],
@@ -46,13 +51,28 @@ new_input = pd.DataFrame(
         "Year": [2023],
         "Broadcast_Day": ["Mondays"],
         "Producers": ["Pierrot, TV Tokyo"],
-        "Licensors": [""],
+        "Licensors": ["Crunchyroll"],
         "Studios": ["Madhouse"],
         "Genres": ["Action, Adventure"],
         "Themes": ["Vampire, Military"],
     }
 )
+unpopular_input = pd.DataFrame(
+    {
+        "Source": ["Original"],
+        "Episodes": [0],
+        "Rating": ["PG-13 - Teens 13 or older"],
+        "Season": ["summer"],
+        "Year": [2023],
+        "Broadcast_Day": ["Mondays"],
+        "Producers": ["Pierrot, TV Tokyo"],
+        "Licensors": ["ADV Films"],
+        "Studios": ["feel., Assez Finaud Fabric"],
+        "Genres": ["Slice of Life"],
+        "Themes": ["Vampire, Military"],
+    }
+)
 
-formatted_input = get_formatted_input(new_input)
-prediction = model.predict(formatted_input)
-print("Prediction:", prediction)
+
+print("Prediction1: ", get_prediction(popular_input))
+print("Prediction2: ", get_prediction(unpopular_input))
