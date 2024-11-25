@@ -50,7 +50,7 @@ def process_data():
     df["Aired_To"] = pd.to_datetime(df["Aired_To"], errors="coerce")
 
     # Filling missing episodes
-    current_date = pd.to_datetime("today").tz_localize("UTC")
+    current_date = pd.Timestamp("2024-11-24", tz="UTC")
     df["estimated_episodes"] = ((current_date - df["Aired_From"]).dt.days // 7).astype(
         float
     )
