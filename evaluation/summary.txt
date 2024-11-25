@@ -1,0 +1,3 @@
+Model: Random Forest (100)
+Accuracy: 81.1224%
+F1-Score: 86.6039%
