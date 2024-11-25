@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, MultiLabelBinarizer
-import pickle
+import pickle, ast
 
 data = pd.read_csv("data_processed/anime_processed_data.csv")
 
@@ -52,6 +52,9 @@ with open("models/factorize_mappings.pkl", "wb") as f:
 
 mlb_dict = {}
 for feature in multi_label_categorical:
+    data[feature] = data[feature].apply(
+        lambda x: ast.literal_eval(x) if isinstance(x, str) and x != "nan" else []
+    )
     mlb = MultiLabelBinarizer()
     transformed_data = mlb.fit_transform(data[feature])
     transformed_df = pd.DataFrame(
