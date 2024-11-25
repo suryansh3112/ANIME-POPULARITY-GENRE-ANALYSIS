@@ -46,32 +46,34 @@ def get_prediction(model_name):
 
     popular_input = pd.DataFrame(
         {
-            "Source": ["Original"],
-            "Episodes": [28],
-            "Rating": ["PG-13 - Teens 13 or older"],
-            "Season": ["summer"],
-            "Year": [2023],
-            "Broadcast_Day": ["Mondays"],
-            "Producers": ["Pierrot, TV Tokyo"],
-            "Licensors": ["Crunchyroll"],
-            "Studios": ["Madhouse"],
-            "Genres": ["Action, Adventure"],
-            "Themes": ["Vampire, Military"],
+            "Source": ["Manga"],
+            "Episodes": [64],
+            "Rating": ["R - 17+ (violence & profanity)"],
+            "Season": ["spring"],
+            "Year": [2009],
+            "Broadcast_Day": ["Sundays"],
+            "Producers": [
+                "Aniplex, Square Enix, Mainichi Broadcasting System, Studio Moriken"
+            ],
+            "Licensors": ["Funimation, Aniplex of America"],
+            "Studios": ["Bones"],
+            "Genres": ["Action, Adventure, Drama, Fantasy"],
+            "Themes": ["Military"],
         }
     )
     unpopular_input = pd.DataFrame(
         {
-            "Source": ["Orignal"],
-            "Episodes": [10],
-            "Rating": ["R - 17+ (violence & profanity)"],
-            "Season": ["winter"],
-            "Year": [2020],
-            "Broadcast_Day": ["Mondays"],
-            "Producers": ["Sega"],
-            "Licensors": ["Central Park Media"],
-            "Studios": ["Studio Deen"],
-            "Genres": ["Horror"],
-            "Themes": ["Gore"],
+            "Source": ["Game"],
+            "Episodes": [12],
+            "Rating": ["PG-13 - Teens 13 or older"],
+            "Season": ["fall"],
+            "Year": [2018],
+            "Broadcast_Day": ["Wednesdays"],
+            "Producers": ["Sotsu"],
+            "Licensors": ["Funimation"],
+            "Studios": ["Gonzo"],
+            "Genres": ["Action, Comedy, Fantasy, Romance"],
+            "Themes": ["Harem, Isekai, Parody"],
         }
     )
     print(f"\n{model_name}:")
