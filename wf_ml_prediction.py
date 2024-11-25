@@ -35,44 +35,45 @@ def get_formatted_input(new_input):
     return new_input
 
 
-def get_prediction(pred_input):
-    with open("models/random_forest_model.pkl", "rb") as file:
+def predict(pred_input, model_name):
+    with open(f"models/{model_name}", "rb") as file:
         model = pickle.load(file)
     pred = model.predict(get_formatted_input(pred_input))
     return "Popular" if pred[0] == 1 else "Unpopular"
 
 
-popular_input = pd.DataFrame(
-    {
-        "Source": ["Original"],
-        "Episodes": [28],
-        "Rating": ["PG-13 - Teens 13 or older"],
-        "Season": ["summer"],
-        "Year": [2023],
-        "Broadcast_Day": ["Mondays"],
-        "Producers": ["Pierrot, TV Tokyo"],
-        "Licensors": ["Crunchyroll"],
-        "Studios": ["Madhouse"],
-        "Genres": ["Action, Adventure"],
-        "Themes": ["Vampire, Military"],
-    }
-)
-unpopular_input = pd.DataFrame(
-    {
-        "Source": ["Original"],
-        "Episodes": [0],
-        "Rating": ["PG-13 - Teens 13 or older"],
-        "Season": ["summer"],
-        "Year": [2023],
-        "Broadcast_Day": ["Mondays"],
-        "Producers": ["Pierrot, TV Tokyo"],
-        "Licensors": ["ADV Films"],
-        "Studios": ["feel., Assez Finaud Fabric"],
-        "Genres": ["Slice of Life"],
-        "Themes": ["Vampire, Military"],
-    }
-)
+def get_prediction(model_name):
 
-
-print("Prediction1: ", get_prediction(popular_input))
-print("Prediction2: ", get_prediction(unpopular_input))
+    popular_input = pd.DataFrame(
+        {
+            "Source": ["Original"],
+            "Episodes": [28],
+            "Rating": ["PG-13 - Teens 13 or older"],
+            "Season": ["summer"],
+            "Year": [2023],
+            "Broadcast_Day": ["Mondays"],
+            "Producers": ["Pierrot, TV Tokyo"],
+            "Licensors": ["Crunchyroll"],
+            "Studios": ["Madhouse"],
+            "Genres": ["Action, Adventure"],
+            "Themes": ["Vampire, Military"],
+        }
+    )
+    unpopular_input = pd.DataFrame(
+        {
+            "Source": ["Original"],
+            "Episodes": [0],
+            "Rating": ["PG-13 - Teens 13 or older"],
+            "Season": ["summer"],
+            "Year": [2023],
+            "Broadcast_Day": ["Mondays"],
+            "Producers": ["Pierrot, TV Tokyo"],
+            "Licensors": ["ADV Films"],
+            "Studios": ["feel., Assez Finaud Fabric"],
+            "Genres": ["Slice of Life"],
+            "Themes": ["Vampire, Military"],
+        }
+    )
+    print(f"\n{model_name}:")
+    print("Prediction1: ", predict(popular_input, model_name))
+    print("Prediction2: ", predict(unpopular_input, model_name))

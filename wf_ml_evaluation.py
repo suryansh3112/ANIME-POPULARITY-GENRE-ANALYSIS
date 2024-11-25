@@ -2,10 +2,17 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, MultiLabelBinarizer
 import pickle, ast
-from wf_ml_training import generate_randomForestClassifier
+from wf_ml_training import (
+    generate_randomForestClassifier,
+    generate_GradientBoostingClassifier,
+)
 from sklearn.metrics import accuracy_score, f1_score
+from wf_ml_prediction import get_prediction
 
 RANDOM_FOREST_100 = "random_forest_model_100.pkl"
+RANDOM_FOREST_50 = "random_forest_model_50.pkl"
+RANDOM_FOREST_FINE_TUNED = "random_forest_fine_tuned.pkl"
+GRADIENT_BOOSTING_CLASSIFIER = "gradient_boosting_classifier.pkl"
 
 
 def save_training_and_testing_data():
@@ -105,12 +112,32 @@ def save_metrics(model_name):
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     f1 = f1_score(y_test, y_pred)
-    with open("evaluation/summary.txt", "w") as f:
-        f.write(f"Model: Random Forest (100)\n")
+    with open("evaluation/summary.txt", "a") as f:
+        f.write(f"Model: {model_name}\n")
         f.write(f"Accuracy: {accuracy*100:.4f}%\n")
-        f.write(f"F1-Score: {f1*100:.4f}%\n")
+        f.write(f"F1-Score: {f1*100:.4f}%\n\n")
 
 
 save_training_and_testing_data()
-generate_randomForestClassifier(100, RANDOM_FOREST_100)
+
+generate_randomForestClassifier(model_name=RANDOM_FOREST_100, n_estimators=100)
 save_metrics(RANDOM_FOREST_100)
+get_prediction(RANDOM_FOREST_100)
+
+generate_randomForestClassifier(model_name=RANDOM_FOREST_50, n_estimators=50)
+save_metrics(RANDOM_FOREST_50)
+get_prediction(RANDOM_FOREST_50)
+
+generate_randomForestClassifier(
+    model_name=RANDOM_FOREST_FINE_TUNED,
+    n_estimators=200,
+    max_depth=10,
+    min_samples_leaf=5,
+    criterion="entropy",
+)
+save_metrics(RANDOM_FOREST_FINE_TUNED)
+get_prediction(RANDOM_FOREST_FINE_TUNED)
+
+generate_GradientBoostingClassifier(GRADIENT_BOOSTING_CLASSIFIER)
+save_metrics(GRADIENT_BOOSTING_CLASSIFIER)
+get_prediction(GRADIENT_BOOSTING_CLASSIFIER)

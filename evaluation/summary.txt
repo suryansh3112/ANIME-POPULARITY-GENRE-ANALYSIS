@@ -1,3 +1,16 @@
-Model: Random Forest (100)
+Model: random_forest_model_100.pkl
 Accuracy: 81.1224%
 F1-Score: 86.6039%
+
+Model: random_forest_model_50.pkl
+Accuracy: 79.7959%
+F1-Score: 85.5895%
+
+Model: random_forest_fine_tuned.pkl
+Accuracy: 68.2653%
+F1-Score: 80.6231%
+
+Model: gradient_boosting_classifier.pkl
+Accuracy: 77.8571%
+F1-Score: 84.3321%
+
