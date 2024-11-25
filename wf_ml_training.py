@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 import pickle
 
-RANDOM_STATE = 42
+RANDOM_STATE = 17
 
 
 def generate_randomForestClassifier(
