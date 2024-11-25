@@ -9,6 +9,7 @@ from wf_ml_training import (
 )
 from sklearn.metrics import accuracy_score, f1_score
 from wf_ml_prediction import get_prediction
+from wf_ml_prediction import predict
 
 RANDOM_FOREST_100 = "random_forest_model_100.pkl"
 RANDOM_FOREST_200 = "random_forest_model_200.pkl"
@@ -119,22 +120,106 @@ def save_metrics(model_name, mode="a"):
         f.write(f"F1-Score: {f1:.4f}\n\n")
 
 
+def test_feature_impact(model_name):
+    source_values = [
+        "Manga",
+        "Visual novel",
+        "Original",
+        "Game",
+        "Mixed media",
+        "Other",
+    ]
+    studio_values = [
+        "Bones",
+        "Madhouse",
+        "Pierrot Films",
+        "DRAWIZ",
+        "Kigumi",
+        "RAMS",
+    ]
+    for source in source_values:
+        df = pd.DataFrame(
+            {
+                "Source": [source],
+                "Episodes": [12],
+                "Rating": ["PG-13 - Teens 13 or older"],
+                "Season": ["fall"],
+                "Year": [2018],
+                "Broadcast_Day": ["Wednesdays"],
+                "Producers": ["Aniplex"],
+                "Licensors": ["Funimation"],
+                "Studios": ["DRAWIZ"],
+                "Genres": ["Action, Adventure"],
+                "Themes": ["Military"],
+            }
+        )
+        prediction = predict(df, model_name)
+        print(f"Source: {source} -> Prediction: {prediction}")
+    print()
+    for studio in studio_values:
+        df = pd.DataFrame(
+            {
+                "Source": ["Other"],
+                "Episodes": [12],
+                "Rating": ["PG-13 - Teens 13 or older"],
+                "Season": ["fall"],
+                "Year": [2018],
+                "Broadcast_Day": ["Wednesdays"],
+                "Producers": ["Aniplex"],
+                "Licensors": ["Funimation"],
+                "Studios": [studio],
+                "Genres": ["Action, Adventure"],
+                "Themes": ["Military"],
+            }
+        )
+        prediction = predict(df, model_name)
+        print(f"Studio: {studio} -> Prediction: {prediction}")
+    print()
+    for source in source_values:
+        for studio in studio_values:
+            df = pd.DataFrame(
+                {
+                    "Source": [source],
+                    "Episodes": [12],
+                    "Rating": ["PG-13 - Teens 13 or older"],
+                    "Season": ["fall"],
+                    "Year": [2018],
+                    "Broadcast_Day": ["Wednesdays"],
+                    "Producers": ["Aniplex"],
+                    "Licensors": ["Funimation"],
+                    "Studios": [studio],
+                    "Genres": ["Action, Adventure"],
+                    "Themes": ["Military"],
+                }
+            )
+            prediction = predict(df, model_name)
+            print(f"Source: {source}, Studios: {studio} -> Prediction: {prediction}")
+
+
+# Saving testing and training data
 save_training_and_testing_data()
 
+# Model 1
 generate_randomForestClassifier(
     model_name=RANDOM_FOREST_100, n_estimators=100, criterion="entropy"
 )
 save_metrics(RANDOM_FOREST_100, "w")
 get_prediction(RANDOM_FOREST_100)
 
+# Model 2
 generate_randomForestClassifier(model_name=RANDOM_FOREST_200, n_estimators=200)
 save_metrics(RANDOM_FOREST_200)
 get_prediction(RANDOM_FOREST_200)
 
+# Model 3
 generate_GradientBoostingClassifier(GRADIENT_BOOSTING_CLASSIFIER)
 save_metrics(GRADIENT_BOOSTING_CLASSIFIER)
 get_prediction(GRADIENT_BOOSTING_CLASSIFIER)
 
+# Model 4
 generate_LogisticRegressionModel(LOGISTIC_REGRESSION_MODEL)
 save_metrics(LOGISTIC_REGRESSION_MODEL)
 get_prediction(LOGISTIC_REGRESSION_MODEL)
+
+# Testing feature impact
+# test_feature_impact(RANDOM_FOREST_100)

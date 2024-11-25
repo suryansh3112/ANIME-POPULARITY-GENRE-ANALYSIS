@@ -44,18 +44,16 @@ Explanation: Conception is unpopular because of the limited episode count (12), 
 
 ### Varying A
 
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:** When varying the `Source` feature while keeping other features constant, the prediction trend shows that "Manga" and "Visual novel" sources tend to be classified as "Popular," while "Original", "Game", "Mixed media", and "Other" sources are classified as "Unpopular". This indicates that the model thinks certain source types like manga and visual novels for instance, are more popular because they have established fanbases or are well-recognized in the anime industry.
 
 ### Varying B
 
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:** When varying the feature `Studios`, keeping other features constant, the model's predictions are mostly dominated by the "Bones" studio, which gets classified as "Popular" quite frequently. On the other hand, studios like "Madhouse", "Pierrot Films", "DRAWIZ", "Kigumi", and "RAMS" get classified as "Unpopular" quite frequently. This may be an indication that the model has learned a bias toward certain studios that are historically more successful or well-known for producing popular anime.
 
 ### Varying A and B together
 
-**Prediction Trend Seen:** TODO
+**Prediction Trend Seen:** In cases where `Source` and `Studios` vary together, the predictions indicate that certain combinations, such as "Manga" with "Bones," are always predicted to be "Popular". Conversely, certain combinations, such as "Original" with "DRAWIZ," get classified as "Unpopular". It seems that the joint effect of `Source` and `Studios` makes the predictions more detailed, with both features playing an important part in determining the output. That also shows that having one popular source, such as manga, increases the chances of a positive prediction even when allied with less popular studios.
 
 ### Varying A and B inversely
 
-**Prediction Trend Seen:** TODO
-
-(duplicate above as many times as needed; remove this line when done)
+**Prediction Trend Seen:** Inverse variation in `Source` and `Studios`-for example, "Manga" with "RAMS" or "Original" with "Bones"-the trend indicates that there is a definite shift noted in the predictions. Specific combinations, such as "Manga" combined with "RAMS", still yield a prediction of "Popular", while "Original" combined with "Bones" tends to be "Popular" as well. This suggests that even though the model takes both features into consideration independently of each other, some combinations-even when one feature is considered less favorable-do not drastically alter the final prediction and this would suggest areas of flexibility or tolerance within the model.
