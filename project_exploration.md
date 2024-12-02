@@ -187,3 +187,11 @@ These columns need to be converted to their respective data types in order for t
 ### Visual 5: Scatter Plot of Score vs. Year (TV)
 
 **Analysis:** From this graph, it is deducible that most of the TV series, ranging from the 1990s to the 2020s, fall within the score range of 6 to 8. While some outliers could result in higher or even lower scores, there is no apparent shifting of the trends of scores across time to really indicate that the general perception of the quality of the shows remains relatively similar across decades.
+
+### Visual 6: Histogram of genre frequency (TV)
+
+**Analysis:** The bar chart shows the popularity of anime genres by count. Comedy, Action, and Fantasy dominate, indicating their mass appeal and prevalence in anime production. Niche genres such as Boys Love and Avant-Garde are less frequent, reflecting smaller but dedicated audiences. The high counts for Adventure, Sci-Fi, and Drama confirm their role as staple genres in anime storytelling.
+
+### Visual 7: Graph of Top Genre Trends (TV)
+
+**Analysis:** This graph shows the trend of average scores for top genres, namely Boys Love, Drama, Mystery, Romance, and Suspense, from 1960 to 2020. Although scores of all genres have varied through the years, Drama and Romance present consistent performances with average scores between 7.0 to 8.0. Boys Love appears sporadic but shows a tendency for high scores after 2010, indicating niche yet strong audience appreciation. Suspense maintains an above-average score in its consistent appeal over time.

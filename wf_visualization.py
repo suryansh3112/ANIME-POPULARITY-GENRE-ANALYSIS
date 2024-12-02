@@ -1,7 +1,7 @@
 import pandas as pd
 from enum import Enum
 import matplotlib.pyplot as plt
-import os
+import os, ast
 import matplotlib.ticker as mtick
 
 
@@ -119,6 +119,40 @@ def plot_qualitative_features(anime_types, qualitative_features):
             plt.close()
 
 
+def generate_genre_trends(df):
+    feature = "Genres"
+    df[feature] = df[feature].apply(
+        lambda x: ast.literal_eval(x) if isinstance(x, str) and x != "nan" else []
+    )
+    df_exploded = df.explode(feature)
+    df_exploded = df_exploded[df_exploded[feature] != "Award Winning"]
+    genre_popularity = (
+        df_exploded.groupby("Genres")["Score"].mean().sort_values(ascending=False)
+    )
+    genre_frequency = df_exploded["Genres"].value_counts()
+
+    genre_frequency.plot(kind="bar", title="Frequency of Each Genre", color="lightblue")
+    plt.ylabel("Count")
+    plt.xlabel("Genre")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig(f"visuals/TV/genre_frequency.png")
+    plt.close()
+
+    top_genres = genre_popularity.head(5).index
+    df_filtered = df_exploded[df_exploded["Genres"].isin(top_genres)]
+    top_genre_trends = df_filtered.groupby(["Year", "Genres"])["Score"].mean().unstack()
+    top_genre_trends.plot(
+        kind="line", title="Top Genre Trends Over Time", figsize=(10, 6)
+    )
+    plt.ylabel("Average Score")
+    plt.xlabel("Year")
+    plt.legend(title="Genres", bbox_to_anchor=(1.05, 1), loc="upper left")
+    plt.tight_layout()
+    plt.savefig(f"visuals/TV/top_genre_trends.png")
+    plt.close()
+
+
 def visualize_data():
     df = pd.read_csv("data_processed/anime_processed_data.csv")
     tv_df = df[df["Type"] == AnimeType.TV.name]
@@ -160,3 +194,4 @@ def visualize_data():
 
     plot_quantitative_features(anime_types, quantitative_features)
     plot_qualitative_features(anime_types, qualitative_features)
+    generate_genre_trends(tv_df)
