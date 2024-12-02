@@ -131,9 +131,10 @@ def generate_genre_trends(df):
     )
     genre_frequency = df_exploded["Genres"].value_counts()
 
-    genre_frequency.plot(kind="bar", title="Frequency of Each Genre", color="lightblue")
+    genre_frequency.plot(kind="bar", title="Frequency of Each Genre")
     plt.ylabel("Count")
     plt.xlabel("Genre")
+    plt.grid(axis="y", linestyle="--", alpha=0.6)
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
     plt.savefig(f"visuals/TV/genre_frequency.png")
